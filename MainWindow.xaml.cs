@@ -20,9 +20,12 @@ namespace Library
     /// </summary>
     public partial class MainWindow : NavigationWindow
     {
+
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();         
+            DataContext = this;
+            
         }
     }
 }

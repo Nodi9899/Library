@@ -6,14 +6,30 @@
       xmlns:local="clr-namespace:Library"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Books">
+      Title="Books" Loaded="Page_Loaded">
     <Page.Resources>
+        <Style x:Key="Label" TargetType="{x:Type Label}" BasedOn="{x:Null}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="23"/>
+        </Style>
+        <Style x:Key="CustTextBox" TargetType="{x:Type TextBox}" BasedOn="{x:Null}">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Width" Value="120"/>
+        </Style>
+
         <CollectionViewSource x:Key="ksiazkiViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Ksiazki}, CreateList=True}"/>
+        <CollectionViewSource x:Key="ksiazkiWypozyczeniaViewSource" Source="{Binding Wypozyczenia, Source={StaticResource ksiazkiViewSource}}"/>
     </Page.Resources>
 
-    <Grid Background="#FF88C1AC">
-        <Label Content="Books" HorizontalAlignment="Left" Margin="347,39,0,0" VerticalAlignment="Top" FontSize="32" Height="53" Width="95"/>
-        <Grid x:Name="grid1" DataContext="{StaticResource ksiazkiViewSource}" HorizontalAlignment="Left" Margin="55,0,0,0" Grid.Row="2" VerticalAlignment="Top">
+    <Grid x:Name="btnAddBook" Background="#FF88C1AC" DataContext="{StaticResource ksiazkiViewSource}">
+        <Label Content="Books" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" FontSize="32" Height="53" Width="95"/>
+        <Button x:Name="btnAdd" Content="Dodaj" HorizontalAlignment="Left" Margin="161,280,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="29,62,0,0" Grid.Row="2" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -25,17 +41,19 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Id Autora:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="idAutoraTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding IdAutora, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Id Gatunku:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox x:Name="idGatunkuTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding IdGatunku, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Id Ksiazki:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBox x:Name="idKsiazkiTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding IdKsiazki, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Id Wydawnictwa:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <TextBox x:Name="idWydawnictwaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding IdWydawnictwa, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Tytul:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBox x:Name="tytulTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Tytul, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+
         </Grid>
+
+        <DataGrid Name="ksiazkiDataGrid" Margin="335,29,27,142" Grid.Row="2"/>
+        <TextBox x:Name="txtTytul" HorizontalAlignment="Left" Height="23" Margin="141,27,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtImie" HorizontalAlignment="Left" Height="23" Margin="141,66,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtNazwisko" HorizontalAlignment="Left" Height="23" Margin="141,108,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Tytuł" HorizontalAlignment="Left" Margin="26,24,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label Content="Imię autora" HorizontalAlignment="Left" Margin="26,66,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label Content="Nazwisko autora" HorizontalAlignment="Left" Margin="26,108,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label Content="Gatunek" HorizontalAlignment="Left" Margin="26,147,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <ListBox x:Name="listboxGatunki" HorizontalAlignment="Left" Height="100" Margin="141,145,0,0" Grid.Row="2" VerticalAlignment="Top" Width="auto" MinWidth="120"/>
+        <Button x:Name="btnDelete" Content="Button" HorizontalAlignment="Left" Margin="461,280,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="btnDelete_Click"/>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>

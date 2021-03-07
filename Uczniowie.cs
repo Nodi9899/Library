@@ -12,23 +12,19 @@ namespace Library
     using System;
     using System.Collections.ObjectModel;
     
-    public partial class Ksiazki
+    public partial class Uczniowie
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ksiazki()
+        public Uczniowie()
         {
             this.Wypozyczenia = new ObservableCollection<Wypozyczenia>();
         }
     
-        public int IdKsiazki { get; set; }
-        public string Tytul { get; set; }
-        public int IdAutora { get; set; }
-        public int IdGatunku { get; set; }
-        public int IdWydawnictwa { get; set; }
+        public int IdUcznia { get; set; }
+        public string Imie { get; set; }
+        public string Nazwisko { get; set; }
+        public string Klasa { get; set; }
     
-        public virtual Autorzy Autorzy { get; set; }
-        public virtual Gatunek Gatunek { get; set; }
-        public virtual Wydawnictwo Wydawnictwo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableCollection<Wypozyczenia> Wypozyczenia { get; set; }
     }

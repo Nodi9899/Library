@@ -67,16 +67,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Ksiazki.cs">
-      <DependentUpon>Library_model.tt</DependentUpon>
+    <Compile Include="Autorzy.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Library_model.cs">
+    <Compile Include="Gatunek.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ksiazki.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Library_model.tt</DependentUpon>
+      <DependentUpon>LibraryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Uczniowie.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wydawnictwo.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Wypozyczenia.cs">
-      <DependentUpon>Library_model.tt</DependentUpon>
+      <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
     <Page Include="Books.xaml">
       <SubType>Designer</SubType>
@@ -99,16 +121,6 @@
     </Compile>
     <Compile Include="LibraryHome.xaml.cs">
       <DependentUpon>LibraryHome.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Library_model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Library_model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Library_model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Library_model.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -133,12 +145,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Library_model.edmx">
+    <EntityDeploy Include="LibraryModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Library_model.Designer.cs</LastGenOutput>
+      <LastGenOutput>LibraryModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Library_model.edmx.diagram">
-      <DependentUpon>Library_model.edmx</DependentUpon>
+    <None Include="LibraryModel.edmx.diagram">
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Books.datasource" />
@@ -153,15 +165,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Library_model.Context.tt">
+    <Content Include="LibraryModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Library_model.edmx</DependentUpon>
-      <LastGenOutput>Library_model.Context.cs</LastGenOutput>
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Library_model.tt">
+    <Content Include="LibraryModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Library_model.edmx</DependentUpon>
-      <LastGenOutput>Library_model.cs</LastGenOutput>
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

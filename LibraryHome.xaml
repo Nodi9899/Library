@@ -8,9 +8,10 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LibraryHome">
 
-    <Grid Background="Black">
-        <Label Content="Label" HorizontalAlignment="Left" Margin="384,98,0,0" VerticalAlignment="Top" Background="White"/>
-        <Button x:Name="btnBooks" Content="Button" HorizontalAlignment="Left" Margin="384,249,0,0" VerticalAlignment="Top" Width="75" Click="btnBooks_Click"/>
+    <Grid Background="#FF88C1AC" Width="800">
+        <Label Content="Strona główna biblioteki" Margin="227,48,220,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="32" HorizontalAlignment="Center"/>
+        <Button x:Name="btnBooks" Content="Książki" HorizontalAlignment="Left" Margin="343,225,0,0" VerticalAlignment="Top" Width="99" Click="btnBooks_Click" FontSize="24" Height="54" Background="#FFCFB6B6"/>
+        <Button x:Name="btnBooks_Copy" Content="Inny btn" HorizontalAlignment="Left" Margin="343,319,0,0" VerticalAlignment="Top" Width="99" Click="btnBooks_Click" FontSize="24" Height="54" Background="#FFCFB6B6"/>
 
     </Grid>
 </Page>

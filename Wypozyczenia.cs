@@ -17,8 +17,9 @@ namespace Library
         public int IdUcznia { get; set; }
         public int IdKsiazki { get; set; }
         public System.DateTime DataWypozyczenia { get; set; }
-        public System.DateTime DataOddania { get; set; }
+        public Nullable<System.DateTime> DataOddania { get; set; }
     
         public virtual Ksiazki Ksiazki { get; set; }
+        public virtual Uczniowie Uczniowie { get; set; }
     }
 }
